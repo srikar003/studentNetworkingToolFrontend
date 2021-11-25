@@ -1,0 +1,11 @@
+<form [formGroup]="addCourseForm" (ngSubmit)="addCourse()">
+
+    <label>CourseName: </label>
+    <input id="courseName" type="text" formControlName="courseName"><br>
+    <mat-slide-toggle formControlName="isPaidCourse">IsPaidCourse</mat-slide-toggle><br>
+    <div [hidden]="!this.addCourseForm.value.isPaidCourse">
+        <label>Price: </label>
+        <input id="price" type="number" formControlName="price"><br>
+    </div>
+    <button type="submit" [disabled]="!addCourseForm.valid">Submit</button>
+</form>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -8,26 +10,37 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class StudentRegistrationComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  public studentRegistrationForm = new FormGroup({
+    userName: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    dob: new FormControl('', Validators.required),
+    college: new FormControl('', Validators.required),
+    studentId: new FormControl('',Validators.required),
+    dept: new FormControl('', Validators.required),
+    contacts: new FormControl(new Array(), Validators.required),
+  })
+
+  private studentData: any;
+  constructor(private readonly authService: AuthenticationService, 
+    private readonly router:Router) { }
 
   ngOnInit(): void {
   }
 
-  addUser(data?: any){
-    
-    data = {
-      userName: "srikar3",
-      password: "abcdef",
-      firstName: "srikar",
-      lastName: "vuppala",
-      email: "srikarvuppala003@gmail.com",
-      dob: new Date("08/20/1997"),
-      college: "university of Houston clear lake",
-      dept: "computer science and engineering",
-      contacts: ["0000000000", "0000000000", "0000000000"]
-    }
-    this.authService.postStudentData(data).subscribe(resp => {
+  addUser() {
+    console.log(this.studentRegistrationForm.controls["contacts"].value);
+    let contactsList = this.studentRegistrationForm.controls["contacts"].value.split(",");
+    this.studentRegistrationForm.patchValue({ "contacts": contactsList });
+    this.studentData = this.studentRegistrationForm.value;
+    this.authService.postStudentData(this.studentData).subscribe(resp => {
+      this.studentRegistrationForm.reset();
+      this.router.navigate(['/dashboard']);
       console.log(resp);
+    }, err => {
+      this.studentRegistrationForm.reset();
     });
   }
 

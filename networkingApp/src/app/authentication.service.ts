@@ -6,18 +6,23 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
+    })
+  };
   private readonly studentRegistrationUrl = "http://localhost:8080/studentRegistration"
+  private readonly addCourseUrl = "http://localhost:8080/addCourse"
   constructor(private readonly http: HttpClient) {
 
   }
 
   postStudentData(data: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 
-        'Access-Control-Allow-Origin':'*'
-      })
-    };
-    return this.http.post(this.studentRegistrationUrl, data, httpOptions).pipe(map(d => d));
+
+    return this.http.post(this.studentRegistrationUrl, data, this.httpOptions).pipe(map(d => d));
+  }
+
+  addCourse(data: any) {
+    return this.http.post(this.addCourseUrl, data, this.httpOptions).pipe(map(d => d));
   }
 }

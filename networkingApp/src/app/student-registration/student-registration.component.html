@@ -1,2 +1,26 @@
-<p>student-registration works!</p>
-<button (click)="addUser()">Submit</button>
+<form [formGroup]="studentRegistrationForm" (ngSubmit)="addUser()">
+
+    <label>UserName: </label>
+    <input id="userName" type="text" formControlName="userName"><br>
+    <label>Password: </label>
+    <input id="password" type="password" formControlName="password"><br>
+    <label>First Name: </label>
+    <input id="firstName" type="text" formControlName="firstName"><br>
+    <label>Last Name: </label>
+    <input id="lastName" type="text" formControlName="lastName"><br>
+    <label>Email: </label>
+    <input id="email" type="text" formControlName="email"><br>
+    <label>DOB: </label>
+    <input id="dob" type="date" formControlName="dob"><br>
+    <label>College: </label>
+    <input id="college" type="text" formControlName="college"><br>
+    <label>Student ID: </label>
+    <input id="studentId" type="text" formControlName="studentId"><br>
+    <label>Dept: </label>
+    <input id="dept" type="text" formControlName="dept"><br>
+    <label>Contacts: </label>
+    <input id="contacts" type="text" formControlName="contacts"><br>
+
+
+    <button type="submit" [disabled]="!studentRegistrationForm.valid">Submit</button>
+</form>
