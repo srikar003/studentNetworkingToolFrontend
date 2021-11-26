@@ -22,10 +22,10 @@ export class CoursesComponent implements OnInit {
   }
 
   addCourse() {
-    console.log(uuidv4());
-    this.addCourseForm.controls['courseId'].value = uuidv4();
+    this.addCourseForm.patchValue({ "courseId": uuidv4() });
     const data = this.addCourseForm.value;
     this.authService.addCourse(data).subscribe(val => {
+      this.addCourseForm.reset();
       console.log(val);
     })
   }

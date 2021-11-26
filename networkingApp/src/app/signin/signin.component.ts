@@ -1,0 +1,36 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
+
+@Component({
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.scss']
+})
+export class SigninComponent implements OnInit {
+  public userType: string = '';
+  public signInForm: any;
+  constructor(private fb: FormBuilder, private readonly authService: AuthenticationService,
+    private router: Router) {
+    this.signInForm = this.fb.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
+
+  ngOnInit(): void {
+  }
+
+  login() {
+    this.authService.signIn(this.signInForm.value, this.userType).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['/dashboard']);
+    })
+  }
+
+  navigateToSignUp(){
+    console.log('hi');
+    this.router.navigate(['/signup']);
+  }
+}

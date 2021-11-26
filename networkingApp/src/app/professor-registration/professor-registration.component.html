@@ -1,0 +1,45 @@
+<form [formGroup]="instructorRegistrationForm">
+
+    <label>Username: </label>
+    <input id="userName" type="text" formControlName="userName"><br>
+    <label>Password: </label>
+    <input id="password" type="password" formControlName="password"><br>
+    <label>First Name: </label>
+    <input id="firstName" type="text" formControlName="firstName"><br>
+    <label>Last Name: </label>
+    <input id="lastName" type="text" formControlName="lastName"><br>
+    <label>Email: </label>
+    <input id="email" type="text" formControlName="email"><br>
+    <label>DOB: </label>
+    <input id="dob" type="date" formControlName="dob"><br>
+    <label>Teaching Experience: </label>
+    <input id="teachingExperience" type=" number" formControlName="teachingExperience">
+    <label> years</label><br>
+    <label>Contacts: </label>
+    <input id="contacts" type="text" formControlName="contacts"><br>
+
+    <div class="radio-inline">
+        <input value="Corporate Professionals" type="radio" name="instructorType" formControlName="instructorType" />
+        <label class="radio-label"> Corporate Professionals</label>
+        <input value="Professors" type="radio" name="instructorType" formControlName="instructorType" />
+        <label class="radio-label">Professors</label>
+    </div>
+</form>
+<form [formGroup]="corporateRegistrationForm"
+    [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Corporate Professionals')">
+    <label>Company: </label>
+    <input id="college" type="text" formControlName="company"><br>
+    <label>Area of Expertise: </label>
+    <input id="expertise" type="text" formControlName="expertise"><br>
+</form>
+
+<form [formGroup]="professorRegistrationForm"
+    [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Professors')">
+    <label>University Name: </label>
+    <input id="college" type="text" formControlName="university"><br>
+    <label>Department: </label>
+    <input id="dept" type="text" formControlName="dept"><br>
+</form>
+
+<button type="submit" (click)="addUser()"
+    [disabled]="!instructorRegistrationForm.valid && !(professorRegistrationForm.valid||corporateRegistrationForm.valid)">Submit</button>

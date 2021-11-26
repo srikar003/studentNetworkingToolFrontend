@@ -37,7 +37,7 @@ export class StudentRegistrationComponent implements OnInit {
     this.studentData = this.studentRegistrationForm.value;
     this.authService.postStudentData(this.studentData).subscribe(resp => {
       this.studentRegistrationForm.reset();
-      this.router.navigate(['/dashboard']);
+      // this.router.navigate(['/dashboard']);
       console.log(resp);
     }, err => {
       this.studentRegistrationForm.reset();

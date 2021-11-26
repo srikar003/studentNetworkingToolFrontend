@@ -1,0 +1,14 @@
+<div>
+    <p>
+        <mat-button-toggle-group [(ngModel)]="userType">
+            <mat-button-toggle value="student">Student</mat-button-toggle>
+            <mat-button-toggle value="instructor">Instructor</mat-button-toggle>
+        </mat-button-toggle-group>
+    </p>
+    <div *ngIf="userType == 'student'">
+        <app-student-registration></app-student-registration>
+    </div>
+    <div *ngIf="userType == 'instructor'">
+        <app-professor-registration></app-professor-registration>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<form [formGroup]="addEventForm" (ngSubmit)="addEvent()">
+
+    <label>EventName: </label>
+    <input id="eventName" type="text" formControlName="eventName"><br>
+    <label>Event Description: </label>
+    <input id="eventDescription" type="text" formControlName="eventDescription"><br>
+    <button type="submit" [disabled]="!addEventForm.valid">Submit</button>
+</form>
