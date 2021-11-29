@@ -13,6 +13,7 @@ export class CoursesComponent implements OnInit {
     this.addCourseForm = fb.group({
       courseId: [''],
       courseName: ['', Validators.required],
+      description: ['', Validators.required],
       isPaidCourse: [false, Validators.required],
       price: [0, Validators.required]
     })

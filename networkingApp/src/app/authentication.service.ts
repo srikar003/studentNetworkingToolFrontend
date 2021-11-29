@@ -16,7 +16,9 @@ export class AuthenticationService {
   private readonly addEventUrl = "http://localhost:8080/addEvent"
   private readonly studentSignInUrl = "http://localhost:8080/studentSignIn"
   private readonly instructorSignInUrl = "http://localhost:8080/instructorSignIn"
-  private readonly instructorsRegistrationUrl = "http://localhost:8080/instructorsRegistration"
+  private readonly instructorsRegistrationUrl = "http://localhost:8080/instructorRegistration"
+  private readonly addCorporateProfessionalUrl = "http://localhost:8080/addCorporateProfessional"
+  private readonly addProfessorsUrl = "http://localhost:8080/addProfessors"
 
   constructor(private readonly http: HttpClient) { }
 
@@ -30,6 +32,14 @@ export class AuthenticationService {
 
   postInstructorData(data: any) {
     return this.http.post(this.instructorsRegistrationUrl, data, this.httpOptions).pipe(map(d => d));
+  }
+
+  postCorpProfessionalData(data: any) {
+    return this.http.post(this.addCorporateProfessionalUrl, data, this.httpOptions).pipe(map(d => d));
+  }
+
+  postProfessorData(data: any) {
+    return this.http.post(this.addProfessorsUrl, data, this.httpOptions).pipe(map(d => d));
   }
 
   addEvent(data: any) {

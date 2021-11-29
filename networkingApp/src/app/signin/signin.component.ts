@@ -25,12 +25,12 @@ export class SigninComponent implements OnInit {
   login() {
     this.authService.signIn(this.signInForm.value, this.userType).subscribe(data => {
       console.log(data);
+      localStorage.setItem("userType", "student");
       this.router.navigate(['/dashboard']);
     })
   }
 
-  navigateToSignUp(){
-    console.log('hi');
+  navigateToSignUp() {
     this.router.navigate(['/signup']);
   }
 }

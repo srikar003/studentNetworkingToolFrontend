@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<div *ngIf="userType=='student'">
+    <ul>
+        <li (click)="navigateToCourseListPage()">List of Courses</li>
+        <li (click)="navigateToEventsPage()">Join Events</li>
+    </ul>
+</div>
+<div *ngIf="userType=='instructor'">
+    <ul>
+        <li (click)="navigateToAddCoursePage()">Add Courses</li>
+        <li (click)="navigateToAddEventsPage()">Create Events</li>
+    </ul>
+</div>

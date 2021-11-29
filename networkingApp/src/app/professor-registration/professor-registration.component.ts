@@ -20,7 +20,7 @@ export class ProfessorRegistrationComponent implements OnInit {
     teachingExperience: new FormControl(0, Validators.required),
     instructorType: new FormControl('', Validators.required),
     instructorId: new FormControl(''),
-    contacts: new FormControl(new Array(), Validators.required),
+    contacts: new FormControl(new Array(), Validators.required)
   })
 
   public professorRegistrationForm = new FormGroup({
@@ -41,10 +41,6 @@ export class ProfessorRegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const uuid = uuidv4();
-    this.instructorRegistrationForm.patchValue({ "instructorId": uuid });
-    this.corporateRegistrationForm.patchValue({ "instructorId": uuid });
-    this.professorRegistrationForm.patchValue({ "instructorId": uuid });
     this.instructorRegistrationForm.controls['instructorType'].valueChanges.subscribe(val => {
       if (val == 'Professors') {
         this.corporateRegistrationForm.reset();
@@ -55,22 +51,33 @@ export class ProfessorRegistrationComponent implements OnInit {
   }
 
   addUser() {
-
-    this.instructorRegistrationForm.patchValue({ "instructorId": uuidv4() });
+    const uuid = uuidv4();
+    this.instructorRegistrationForm.patchValue({ "instructorId": uuid });
+    this.corporateRegistrationForm.patchValue({ "instructorId": uuid });
+    this.professorRegistrationForm.patchValue({ "instructorId": uuid });
     let contactsList = this.instructorRegistrationForm.controls["contacts"].value.split(",");
     this.instructorRegistrationForm.patchValue({ "contacts": contactsList });
     this.instructorData = this.instructorRegistrationForm.value;
     this.authService.postInstructorData(this.instructorData).subscribe(resp => {
       if (this.instructorRegistrationForm.controls['instructorType'].value == 'Professors') {
-        this.corporateRegistrationForm.reset();
-      } else {
+        this.authService.postProfessorData(this.professorRegistrationForm.value).subscribe(resp => {
+          console.log(resp);
+        })
         this.professorRegistrationForm.reset();
+      } else {
+        this.authService.postCorpProfessionalData(this.corporateRegistrationForm.value).subscribe(resp => {
+          console.log(resp);
+        })
+        this.corporateRegistrationForm.reset();
       }
       this.instructorRegistrationForm.reset();
       this.router.navigate(['/dashboard']);
       console.log(resp);
     }, err => {
+      this.corporateRegistrationForm.reset();
+      this.professorRegistrationForm.reset();
       this.instructorRegistrationForm.reset();
+
     });
   }
 

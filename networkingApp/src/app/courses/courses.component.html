@@ -1,7 +1,9 @@
 <form [formGroup]="addCourseForm" (ngSubmit)="addCourse()">
 
-    <label>CourseName: </label>
+    <label>Course Name: </label>
     <input id="courseName" type="text" formControlName="courseName"><br>
+    <label>Description: </label>
+    <input id="description" type="text" formControlName="description"><br>
     <mat-slide-toggle formControlName="isPaidCourse">IsPaidCourse</mat-slide-toggle><br>
     <div [hidden]="!this.addCourseForm.value.isPaidCourse">
         <label>Price: </label>

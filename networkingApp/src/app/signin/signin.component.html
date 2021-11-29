@@ -10,7 +10,7 @@
         <input id="userName" type="text" formControlName="userName"><br>
         <label>Password: </label>
         <input id="password" type="password" formControlName="password"><br>
-        <button type="submit" [disabled]="!signInForm.valid && userType!=''">Submit</button>
+        <button type="submit" [disabled]="!signInForm.valid || userType==''">Submit</button>
     </form>
 
 </div><br>
