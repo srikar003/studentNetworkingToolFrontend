@@ -44,4 +44,8 @@ export class StudentRegistrationComponent implements OnInit {
     });
   }
 
+  navigateToSignIn(){
+    this.router.navigate(['/signin']);
+  }
+
 }
