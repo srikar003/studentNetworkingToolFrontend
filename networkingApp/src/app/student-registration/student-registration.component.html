@@ -1,26 +1,84 @@
-<form [formGroup]="studentRegistrationForm" (ngSubmit)="addUser()">
 
-    <label>Username: </label>
-    <input id="userName" type="text" formControlName="userName"><br>
-    <label>Password: </label>
-    <input id="password" type="password" formControlName="password"><br>
-    <label>First Name: </label>
-    <input id="firstName" type="text" formControlName="firstName"><br>
-    <label>Last Name: </label>
-    <input id="lastName" type="text" formControlName="lastName"><br>
-    <label>Email: </label>
-    <input id="email" type="text" formControlName="email"><br>
-    <label>DOB: </label>
-    <input id="dob" type="date" formControlName="dob"><br>
-    <label>College: </label>
-    <input id="college" type="text" formControlName="college"><br>
-    <label>Student ID: </label>
-    <input id="studentId" type="text" formControlName="studentId"><br>
-    <label>Department: </label>
-    <input id="dept" type="text" formControlName="dept"><br>
-    <label>Contacts: </label>
-    <input id="contacts" type="text" formControlName="contacts"><br>
+  <div class="container">
+   <!-- column 1 -->
+    <div class="col">
+
+    </div>
+     <!-- column 2 form contrainer -->
+    <div class="col shadow-lg p-3 mb-5 bg-white rounded mt-3">
+        <h1 class="display-2 text-center">Register<h6>Student</h6></h1>
+      <form [formGroup]="studentRegistrationForm" (ngSubmit)="addUser()">
+      	<!-- Username input -->
+        <div class="form-outline mb-1 mx-3 mt-3">
+          <input id="userName" type="text" class="form-control" formControlName="userName"/>
+          <label class="form-label">Username</label>
+        </div>
+        
+        <!-- Password input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="password" type="password" class="form-control" formControlName="password"/>
+          <label class="form-label">Password</label>
+        </div>
+        
+        <!-- Firstname input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="firstName" type="text" class="form-control" formControlName="firstName"/>
+          <label class="form-label">Fisrt Name</label>
+        </div>
+        
+        <!-- Lastname input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="lastName" type="text" class="form-control" formControlName="lastName"/>
+          <label class="form-label">Last Name</label>
+        </div>
+        
+        <!-- Email input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="email" type="email" class="form-control" formControlName="email"/>
+          <label class="form-label">Email Address</label>
+        </div>
+        
+        <!-- DOB input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="dob" type="date" class="form-control" formControlName="dob"/>
+          <label class="form-label">Date of Birth</label>
+        </div>
+        
+        <!-- College input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="college" type="text" class="form-control" formControlName="college"/>
+          <label class="form-label">College</label>
+        </div>
+       
+        <!-- Student ID input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="studentId" type="text" class="form-control" formControlName="studentId"/>
+          <label class="form-label">Student ID</label>
+        </div>
+        
+        <!-- Department input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="dept" type="text" class="form-control" formControlName="dept"/>
+          <label class="form-label">Department:</label>
+        </div>
+        
+         <!-- Contacts input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="contacts" type="text" class="form-control" formControlName="contacts"/>
+          <label class="form-label">Contacts</label>
+        </div>
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mx-3 my-3" type="submit" [disabled]="!studentRegistrationForm.valid">Submit</button>
+      </form>
+    </div>
+    
+     <!-- column 3 -->
+    <div class="col-sm">
+      
+    </div>
+</div>
 
 
-    <button type="submit" [disabled]="!studentRegistrationForm.valid">Submit</button>
-</form>
+
+

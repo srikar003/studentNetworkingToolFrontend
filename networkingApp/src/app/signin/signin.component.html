@@ -1,18 +1,40 @@
-<div>
-    <p>
+<!doctype html>
+<html lang="en">
+  <body style="background-image: url('https://mdbootstrap.com/img/new/fluid/city/018.jpg');; height: 850px;">  
+    <!--container 1-->
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                </div>
+                <div class="col-6 mt-4 bg-white shadow-lg rounded">
+                   <div>
+                   		<p>
         <mat-button-toggle-group [(ngModel)]="userType">
             <mat-button-toggle value="student">Student</mat-button-toggle>
             <mat-button-toggle value="instructor">Instructor</mat-button-toggle>
         </mat-button-toggle-group>
     </p>
-    <form [formGroup]="signInForm" (ngSubmit)="login()">
-        <label>UserName: </label>
-        <input id="userName" type="text" formControlName="userName"><br>
-        <label>Password: </label>
-        <input id="password" type="password" formControlName="password"><br>
-        <button type="submit" [disabled]="!signInForm.valid || userType==''">Submit</button>
-    </form>
-
-</div><br>
-
-<button (click)="navigateToSignUp()">SignUp</button>
+    				<form [formGroup]="signInForm" (ngSubmit)="login()">
+                    	
+                        <!-- User Name -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="userName" type="text" class="form-control" formControlName="userName"/>
+          <label class="form-label">userName</label>
+        </div>		
+        			<!-- Password input -->
+        <div class="form-outline mb-1 mx-3">
+          <input id="password" type="password" class="form-control" formControlName="password"/>
+          <label class="form-label">Password</label>
+        </div>
+        			<button class="btn btn-primary btn-block mx-3 my-3" type="submit" [disabled]="!signInForm.valid && userType!=''">Submit</button>
+      
+                    </form>
+                   </div>
+                   <button (click)="navigateToSignUp()" class="btn btn-primary btn-block mx-3 my-3" >SignUp</button>
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+        </div>
+    </body>
+</html> 
