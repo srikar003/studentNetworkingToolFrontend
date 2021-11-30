@@ -20,15 +20,20 @@ export class SigninComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('userType') != null) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   login() {
     this.authService.signIn(this.signInForm.value, this.userType).subscribe(data => {
       console.log(data);
-      localStorage.setItem("userType", "student");
+
+      localStorage.setItem('userType', this.userType);
       this.router.navigate(['/dashboard']);
     })
   }
+
 
   navigateToSignUp() {
     this.router.navigate(['/signup']);
