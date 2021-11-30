@@ -1,43 +1,37 @@
-<!doctype html>
-<html lang="en">
+<div class="container">
+  <div class="text-center">
+    <p>
+      <mat-button-toggle-group [(ngModel)]="userType">
+        <mat-button-toggle value="student">Student</mat-button-toggle>
+        <mat-button-toggle value="instructor">Instructor</mat-button-toggle>
+      </mat-button-toggle-group>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6 m-4 p-3 bg-white shadow-lg rounded">
+      <form [formGroup]="signInForm" (ngSubmit)="login()">
 
-<body>
-  <!--container 1-->
-  <div class="container">
-    <div class="row">
-      <div class="col-3">
-      </div>
-      <div class="col-6 mt-4 bg-white shadow-lg rounded">
-        <div>
-          <p>
-            <mat-button-toggle-group [(ngModel)]="userType">
-              <mat-button-toggle value="student">Student</mat-button-toggle>
-              <mat-button-toggle value="instructor">Instructor</mat-button-toggle>
-            </mat-button-toggle-group>
-          </p>
-          <form [formGroup]="signInForm" (ngSubmit)="login()">
-
-            <!-- User Name -->
-            <div class="form-outline mb-1 mx-3">
-              <input id="userName" type="text" class="form-control" formControlName="userName" />
-              <label class="form-label">Username</label>
-            </div>
-            <!-- Password input -->
-            <div class="form-outline mb-1 mx-3">
-              <input id="password" type="password" class="form-control" formControlName="password" />
-              <label class="form-label">Password</label>
-            </div>
-            <button class="btn btn-primary btn-block mx-3 my-3" type="submit"
-              [disabled]="!signInForm.valid || userType==''">Submit</button>
-
-          </form>
+        <!-- User Name -->
+        <div class="form-outline mb-1 mx-3">
+          <label class="form-label">Username</label>
+          <input id="userName" type="text" class="form-control" formControlName="userName" />
         </div>
-        <button (click)="navigateToSignUp()" class="btn btn-primary btn-block mx-3 my-3">SignUp</button>
-      </div>
-      <div class="col-3">
-      </div>
+        <!-- Password input -->
+        <div class="form-outline mb-1 mx-3">
+          <label class="form-label">Password</label>
+          <input id="password" type="password" class="form-control" formControlName="password" />
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary btn-block mx-3 my-3" type="submit"
+            [disabled]="!signInForm.valid || userType==''">Submit</button>
+          <button (click)="navigateToSignUp()" class="btn btn-primary btn-block mx-3 my-3">SignUp</button>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-3">
     </div>
   </div>
-</body>
-
-</html>
+</div>

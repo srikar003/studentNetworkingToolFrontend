@@ -9,7 +9,7 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-  public userType: string = '';
+  public userType: string = 'student';
   public signInForm: any;
   constructor(private fb: FormBuilder, private readonly authService: AuthenticationService,
     private router: Router) {

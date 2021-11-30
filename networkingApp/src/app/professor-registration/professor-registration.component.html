@@ -1,115 +1,110 @@
+<div class="container">
+  <!-- column 1 -->
+  <div class="col">
 
-  <div class="container">
-    <!-- column 1 -->
-     <div class="col">
- 
-     </div>
-      <!-- column 2 form contrainer -->
-     <div class="col shadow-lg p-3 mb-5 bg-white rounded mt-3">
-         <h1 class="display-2 text-center">Register<h6>Instructor</h6></h1>
-       <form [formGroup]="instructorRegistrationForm">
-           <!-- Username input -->
-         <div class="form-outline mb-1 mx-3 mt-3">
-           <input id="userName" type="text" class="form-control" formControlName="userName"/>
-           <label class="form-label">Username</label>
-         </div>
-         
-         <!-- Password input -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="password" type="password" class="form-control" formControlName="password"/>
-           <label class="form-label">Password</label>
-         </div>
-         
-         <!-- Firstname input -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="firstName" type="text" class="form-control" formControlName="firstName"/>
-           <label class="form-label">Fisrt Name</label>
-         </div>
-         
-         <!-- Lastname input -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="lastName" type="text" class="form-control" formControlName="lastName"/>
-           <label class="form-label">Last Name</label>
-         </div>
-         
-         <!-- Email input -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="email" type="email" class="form-control" formControlName="email"/>
-           <label class="form-label">Email Address</label>
-         </div>
-         
-         <!-- DOB input -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="dob" type="date" class="form-control" formControlName="dob"/>
-           <label class="form-label">Date of Birth</label>
-         </div>
-         
-         <!-- Teaching Experience -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="teachingExperience" type="number" class="form-control" formControlName="teachingExperience"/>
-           <label class="form-label">Teaching Experience(years)</label>
-         </div>
-         
-          <!-- Contacts input -->
-         <div class="form-outline mb-1 mx-3">
-           <input id="contacts" type="text" class="form-control" formControlName="contacts"/>
-           <label class="form-label">Contacts</label>
-         </div>
-         
-         <!--radio inline-->
-         <div class="radio-inline">
-         <input value="Corporate Professionals" type="radio" name="instructorType" formControlName="instructorType" />
-         <label class="radio-label"> Corporate Professionals</label>
-         <input value="Professors" type="radio" name="instructorType" formControlName="instructorType" />
-         <label class="radio-label">Professors</label>
-     </div>
-           </form>
-         
-         <!--corporate form-->
-         <form [formGroup]="corporateRegistrationForm"
-     [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Corporate Professionals')">
-         
-           <div class="form-outline mb-1 mx-3">
-           <input id="college" type="text" class="form-control" formControlName="college"/>
-           <label class="form-label">Contacts</label>
-         </div>
-         
-         <div class="form-outline mb-1 mx-3">
-           <input id="expertise" type="text" class="form-control" formControlName="expertise"/>
-           <label class="form-label">Contacts</label>
-         </div>
-         
-         </form>
-         
-         <!--professor form-->
-         <form [formGroup]="professorRegistrationForm"
-     [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Professors')">
-         
-           <div class="form-outline mb-1 mx-3">
-           <input id="college" type="text" class="form-control" formControlName="university"/>
-           <label class="form-label">University Name</label>
-         </div>
-         
-         <div class="form-outline mb-1 mx-3">
-           <input id="dept" type="text" class="form-control" formControlName="dept"/>
-           <label class="form-label">Department</label>
-         </div>
-         
-         </form>
-             
-         <!-- Submit button -->
-         <button type="submit" (click)="addUser()"
-     [disabled]="!instructorRegistrationForm.valid && !(professorRegistrationForm.valid||corporateRegistrationForm.valid)"class="btn btn-primary btn-block mx-3 my-3" type="submit" >Submit</button>
-       
-     </div>
-     
-      <!-- column 3 -->
-     <div class="col-sm">
-       
-     </div>
- </div>
- 
- 
- 
- 
- 
+  </div>
+  <!-- column 2 form contrainer -->
+  <div class="col shadow-lg p-3 mb-5 bg-white rounded">
+    <h4 class="display-5 text-center">Register</h4>
+    <form [formGroup]="instructorRegistrationForm">
+      <!-- Username input -->
+      <div class="form-outline mb-1 mx-3 mt-3">
+        <label class="form-label">Username</label>
+        <input id="userName" type="text" class="form-control" formControlName="userName" />
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password" />
+      </div>
+
+      <!-- Firstname input -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Fisrt Name</label>
+        <input id="firstName" type="text" class="form-control" formControlName="firstName" />
+      </div>
+
+      <!-- Lastname input -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Last Name</label>
+        <input id="lastName" type="text" class="form-control" formControlName="lastName" />
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Email Address</label>
+        <input id="email" type="email" class="form-control" formControlName="email" />
+      </div>
+
+      <!-- DOB input -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Date of Birth</label>
+        <input id="dob" type="date" class="form-control" formControlName="dob" />
+      </div>
+
+      <!-- Teaching Experience -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Teaching Experience(years)</label>
+        <input id="teachingExperience" type="number" class="form-control" formControlName="teachingExperience" />
+      </div>
+
+      <!-- Contacts input -->
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Contacts</label>
+        <input id="contacts" type="text" class="form-control" formControlName="contacts" />
+      </div>
+
+      <!--radio inline-->
+      <div class="form-outline mb-1 mx-3 radio-outline">
+        <input value="Corporate Professionals" type="radio" name="instructorType" formControlName="instructorType" />
+        <label class="radio-label"> Corporate Professionals</label>&nbsp;&nbsp;
+        <input value="Professors" type="radio" name="instructorType" formControlName="instructorType" />
+        <label class="radio-label">Professors</label>
+      </div>
+    </form>
+
+    <!--corporate form-->
+    <form [formGroup]="corporateRegistrationForm"
+      [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Corporate Professionals')">
+
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Contacts</label>
+        <input id="college" type="text" class="form-control" formControlName="college" />
+      </div>
+
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Contacts</label>
+        <input id="expertise" type="text" class="form-control" formControlName="expertise" />
+      </div>
+
+    </form>
+
+    <!--professor form-->
+    <form [formGroup]="professorRegistrationForm"
+      [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Professors')">
+
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">University Name</label>
+        <input id="college" type="text" class="form-control" formControlName="university" />
+      </div>
+
+      <div class="form-outline mb-1 mx-3">
+        <label class="form-label">Department</label>
+        <input id="dept" type="text" class="form-control" formControlName="dept" />
+      </div>
+
+    </form>
+
+    <!-- Submit button -->
+    <button type="submit" (click)="addUser()"
+      [disabled]="!instructorRegistrationForm.valid && !(professorRegistrationForm.valid||corporateRegistrationForm.valid)"
+      class="btn btn-primary btn-block mx-3 my-3" type="submit">Submit</button>
+
+  </div>
+
+  <!-- column 3 -->
+  <div class="col-sm">
+
+  </div>
+</div>
