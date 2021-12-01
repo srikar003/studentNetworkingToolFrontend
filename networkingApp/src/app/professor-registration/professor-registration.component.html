@@ -69,12 +69,12 @@
       [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Corporate Professionals')">
 
       <div class="form-outline mb-1 mx-3">
-        <label class="form-label">Contacts</label>
-        <input id="college" type="text" class="form-control" formControlName="college" />
+        <label class="form-label">Company</label>
+        <input id="college" type="text" class="form-control" formControlName="company" />
       </div>
 
       <div class="form-outline mb-1 mx-3">
-        <label class="form-label">Contacts</label>
+        <label class="form-label">Expertise</label>
         <input id="expertise" type="text" class="form-control" formControlName="expertise" />
       </div>
 
@@ -85,7 +85,7 @@
       [hidden]="!(this.instructorRegistrationForm.value.instructorType=='Professors')">
 
       <div class="form-outline mb-1 mx-3">
-        <label class="form-label">University Name</label>
+        <label class="form-label">University</label>
         <input id="college" type="text" class="form-control" formControlName="university" />
       </div>
 
@@ -97,9 +97,12 @@
     </form>
 
     <!-- Submit button -->
-    <button type="submit" (click)="addUser()"
-      [disabled]="!instructorRegistrationForm.valid && !(professorRegistrationForm.valid||corporateRegistrationForm.valid)"
-      class="btn btn-primary btn-block mx-3 my-3" type="submit">Submit</button>
+    <div class="text-center">
+      <button type="submit" (click)="addUser()"
+        [disabled]="!instructorRegistrationForm.valid && !(professorRegistrationForm.valid||corporateRegistrationForm.valid)"
+        class="btn btn-primary btn-block mx-3 my-3" type="submit">Sign Up</button>
+      <button (click)="navigateToSignIn()" class="btn btn-primary btn-block mx-3 my-3">Sign In</button>
+    </div>
 
   </div>
 

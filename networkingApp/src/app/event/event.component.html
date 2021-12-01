@@ -1,28 +1,23 @@
-<!doctype html>
-<html lang="en">
-  <body>  
-    <!--container 1-->
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                </div>
-                <div class="col-4 mt-4 bg-white shadow-lg rounded">
-                <form [formGroup]="addEventForm" (ngSubmit)="addEvent()">
-                	<div class="form-outline mb-1 mx-3 mt-4">
-          <input id="eventName" type="text" class="form-control" formControlName="eventName"/>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-4 mt-4 bg-white shadow-lg rounded">
+      <form [formGroup]="addEventForm" (ngSubmit)="addEvent()">
+        <div class="form-outline mb-1 mx-3 mt-4">
           <label class="form-label">EventName</label>
-        </div>	
-        			 <div class="form-outline mb-1 mx-3">
-          <input id="eventDescription" type="text" class="form-control" formControlName="eventDescription"/>
+          <input id="eventName" type="text" class="form-control" formControlName="eventName" />
+        </div>
+        <div class="form-outline mb-1 mx-3">
           <label class="form-label">Event Description</label>
+          <input id="eventDescription" type="text" class="form-control" formControlName="eventDescription" />
         </div>
-                   
-                   <button type="submit" [disabled]="!addEventForm.valid" class="btn btn-primary btn-block mx-3 my-3" >Submit</button>
-                </form>
-                </div>
-                <div class="col-4">
-                </div>
-            </div>
-        </div>
-    </body>
-</html> 
+
+        <button type="submit" [disabled]="!addEventForm.valid"
+          class="btn btn-primary btn-block mx-3 my-3">Submit</button>
+      </form>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+</div>

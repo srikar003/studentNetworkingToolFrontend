@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { v4 as uuidv4 } from 'uuid';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-professor-registration',
@@ -37,7 +38,7 @@ export class ProfessorRegistrationComponent implements OnInit {
 
   private instructorData: any;
   constructor(private readonly authService: AuthenticationService,
-    private readonly router: Router) {
+    private readonly router: Router, private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -71,14 +72,20 @@ export class ProfessorRegistrationComponent implements OnInit {
         this.corporateRegistrationForm.reset();
       }
       this.instructorRegistrationForm.reset();
-      this.router.navigate(['/dashboard']);
+      this.snackBar.open("Account created successfully", "Dismiss", { duration: 2000 });
+      this.router.navigate(['/signin']);
+
       console.log(resp);
     }, err => {
       this.corporateRegistrationForm.reset();
       this.professorRegistrationForm.reset();
       this.instructorRegistrationForm.reset();
-
+      this.snackBar.open("Unable to register now. Please try again later", "Dismiss", { duration: 3000 });
     });
+  }
+
+  navigateToSignIn() {
+    this.router.navigate(['/signin']);
   }
 
 }

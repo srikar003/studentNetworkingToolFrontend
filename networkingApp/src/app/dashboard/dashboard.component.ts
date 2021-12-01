@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  public userType: any;
+  public userType: any = '';
   constructor(private router: Router) {
     this.userType = localStorage.getItem('userType');
+    if(this.userType == null){
+      this.router.navigate(['/signin']);
+    }
   }
 
   ngOnInit(): void {

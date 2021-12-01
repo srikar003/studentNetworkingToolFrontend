@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { EventComponent } from './event/event.component';
 import { SigninComponent } from './signin/signin.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { SignupComponent } from './signup/signup.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

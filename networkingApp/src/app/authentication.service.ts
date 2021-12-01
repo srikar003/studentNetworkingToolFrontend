@@ -19,6 +19,7 @@ export class AuthenticationService {
   private readonly instructorsRegistrationUrl = "http://localhost:8080/instructorRegistration"
   private readonly addCorporateProfessionalUrl = "http://localhost:8080/addCorporateProfessional"
   private readonly addProfessorsUrl = "http://localhost:8080/addProfessors"
+  private readonly addInstructorsToCourseUrl = "http://localhost:8080/addInstructorsToCourse"
 
   constructor(private readonly http: HttpClient) { }
 
@@ -51,5 +52,9 @@ export class AuthenticationService {
       return this.http.post(this.studentSignInUrl, data, this.httpOptions).pipe(map(d => d));
     }
     return this.http.post(this.instructorSignInUrl, data, this.httpOptions).pipe(map(d => d));
+  }
+
+  setInstructorToCourse(data: any){
+    return this.http.post(this.addInstructorsToCourseUrl, data, this.httpOptions).pipe(map(d => d));
   }
 }
