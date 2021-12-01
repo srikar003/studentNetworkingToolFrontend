@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CourseListComponent } from './course-list/course-list.component';
 import { CoursesComponent } from './courses/courses.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EventListComponent } from './event-list/event-list.component';
 import { EventComponent } from './event/event.component';
 import { ProfessorRegistrationComponent } from './professor-registration/professor-registration.component';
 import { SigninComponent } from './signin/signin.component';
@@ -16,7 +18,10 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'addEvent', component: EventComponent }
+  { path: 'addEvent', component: EventComponent },
+  { path: 'courseList', component: CourseListComponent },
+  { path: 'eventList', component: EventListComponent },
+  { path: '**', component: SigninComponent },
 ];
 
 @NgModule({

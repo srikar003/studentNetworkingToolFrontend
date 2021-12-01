@@ -16,6 +16,9 @@ import { SigninComponent } from './signin/signin.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { SignupComponent } from './signup/signup.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import { CourseListComponent } from './course-list/course-list.component';
+import { EventListComponent } from './event-list/event-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ProfessorRegistrationComponent,
     EventComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    CourseListComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSlideToggleModule,
     MatButtonToggleModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

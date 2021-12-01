@@ -1,0 +1,14 @@
+<button class="btn btn-primary float-right" (click)="addCourse()" *ngIf="userType == 'instructor'">Add Course</button>
+<div class="row m-3">
+    <div *ngFor="let course of courseList;" class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{course.courseName | uppercase}}</h5>
+                <p class="card-text">{{course.description}}</p>
+                <label class="card-text d-inline">Instructor:</label>
+                <p class="card-text d-inline"> {{course.fullName}}</p>
+                <button *ngIf="userType == 'student'" class="btn btn-primary d-block" (click)='enrollCourse(course)'>Enroll Course</button>
+            </div>
+        </div>
+    </div>
+</div>

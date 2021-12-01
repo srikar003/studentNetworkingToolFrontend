@@ -1,12 +1,35 @@
-<div *ngIf="userType=='student'">
-    <ul>
-        <li (click)="navigateToCourseListPage()">List of Courses</li>
-        <li (click)="navigateToEventsPage()">Join Events</li>
-    </ul>
+<h4 class="m-3">Recent Courses</h4>
+<div>
+    <div class="row m-3">
+        <div *ngFor="let course of recentCourses;" class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{course.courseName | uppercase}}</h5>
+                    <p class="card-text">{{course.description}}</p>
+                    <label class="card-text d-inline">Instructor:</label>
+                    <p class="card-text d-inline"> {{course.fullName}}</p>
+                    <button *ngIf="userType == 'student'" class="btn btn-primary d-block"
+                        (click)='enrollCourse(course)'>Enroll Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div *ngIf="userType=='instructor'">
-    <ul>
-        <li (click)="navigateToAddCoursePage()">Add Courses</li>
-        <li (click)="navigateToAddEventsPage()">Create Events</li>
-    </ul>
+<h4 class="m-3">Recent Events</h4>
+<div>
+    <div class="row m-3">
+        <div *ngFor="let event of recentEvents;" class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{event.eventName}}</h5>
+                    <p class="card-text">{{event.description}}</p>
+                    <label class="card-text d-inline">Instructor:</label>
+                    <p class="card-text d-inline"> {{event.fullName}}</p>
+                    <button *ngIf="userType == 'student'" class="btn btn-primary d-block"
+                        (click)='joinEvent(event)'>Join Event</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
