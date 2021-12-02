@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseListComponent } from './course-list/course-list.component';
+import { CoursePageComponent } from './course-page/course-page.component';
 import { CoursesComponent } from './courses/courses.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { EventPageComponent } from './event-page/event-page.component';
 import { EventComponent } from './event/event.component';
 import { ProfessorRegistrationComponent } from './professor-registration/professor-registration.component';
 import { SigninComponent } from './signin/signin.component';
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'addEvent', component: EventComponent },
   { path: 'courseList', component: CourseListComponent },
   { path: 'eventList', component: EventListComponent },
+  { path: 'courseId/:id', component: CoursePageComponent },
+  { path: 'eventId/:id', component: EventPageComponent },
   { path: '**', component: SigninComponent },
 ];
 

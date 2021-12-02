@@ -30,26 +30,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  enrollCourse(data: any) {
-    const payload = { studentId: localStorage.getItem('studentId'), courseId: data.courseId };
-    this.authService.enrollCourse(payload).subscribe(resp => {
-      if(resp == true){
-        //snackbar
-      }
-    }, err => {
-      // err snackbar msg
-    })
+  viewCourse(data: any) {
+    this.router.navigate(['/courseId', data.courseId]);
   }
 
-  joinEvent(data: any) {
-    const payload = { studentId: localStorage.getItem('studentId'), eventId: data.eventId };
-    this.authService.addParticipantsToEvents(payload).subscribe(resp => {
-      if(resp == true){
-        //snackbar
-      }
-    }, err => {
-      // err snackbar msg
-    })
+  viewEvent(data: any) {
+    this.router.navigate(['/eventId', data.eventId]);
   }
 
   navigateToCourseListPage() {

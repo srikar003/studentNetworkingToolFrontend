@@ -10,7 +10,8 @@
         </div>
         <div class="form-outline mb-1 mx-3">
           <label class="form-label">Event Description</label>
-          <input id="eventDescription" type="text" class="form-control" formControlName="eventDescription" />
+          <textarea id="eventDescription" type="text" class="form-control"
+            formControlName="eventDescription"></textarea>
         </div>
 
         <button type="submit" [disabled]="!addEventForm.valid"

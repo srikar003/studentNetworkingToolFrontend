@@ -12,3 +12,14 @@ $theme: mat.define-light-theme((
   )
 ));
 @include mat.all-component-themes($theme);
+
+// button{
+//   background: black !important;
+//   color: white;
+//   font-weight: 400;
+//   border-color: wheat;
+// }
+
+body{
+  background-color: beige;
+}

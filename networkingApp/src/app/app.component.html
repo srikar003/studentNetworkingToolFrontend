@@ -1,11 +1,19 @@
 <div>
   <div *ngIf="!(this.router.url=='/signin' || this.router.url=='/signup')">
     <div class="topnav">
-      <a href="/dashboard">Dashboard</a>
-      <a href="/courseList">Courses</a>
-      <a href="/eventList">Events</a>
+      <div>
+        <a routerLink="/dashboard">Dashboard</a>
+      </div>
+      <div>
+        <a routerLink="/courseList">Courses</a>
+      </div>
+      <div>
+        <a routerLink="/eventList">Events</a>
+      </div>
+      <div class="signout">
+        <a (click)="signout()">Sign Out</a>
+      </div>
     </div>
-    <button (click)="signout()" mat-stroked-button color="primary" class="signout">Sign Out</button>
   </div>
   <div class="mt-3">
     <router-outlet></router-outlet>

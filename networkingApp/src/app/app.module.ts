@@ -19,6 +19,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import { CourseListComponent } from './course-list/course-list.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { CoursePageComponent } from './course-page/course-page.component';
+import { EventPageComponent } from './event-page/event-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { EventListComponent } from './event-list/event-list.component';
     SigninComponent,
     SignupComponent,
     CourseListComponent,
-    EventListComponent
+    EventListComponent,
+    CoursePageComponent,
+    EventPageComponent
   ],
   imports: [
     BrowserModule,

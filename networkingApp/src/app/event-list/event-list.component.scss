@@ -3,3 +3,31 @@
     margin-right: 20px;
     margin-top: 2px;
 }
+
+.card-img-css {
+    height: 150px;
+    width: 100%;
+    padding: 5px 15px;
+}
+
+.card {
+    width: 90%;
+    background: black;
+    color: beige;
+    .card-title {
+        margin-top: 5px;
+        text-align: center;
+    }
+    div {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        button {
+            background-color: beige;
+            color: black;
+            border-color: black;
+        }
+    }
+
+}

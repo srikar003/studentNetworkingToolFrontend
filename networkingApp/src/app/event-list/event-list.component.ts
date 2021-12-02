@@ -20,16 +20,8 @@ export class EventListComponent implements OnInit {
 
   ngOnInit(): void { }
 
-
-  joinEvent(data: any) {
-    const payload = { studentId: localStorage.getItem('studentId'), eventId: data.eventId };
-    this.authService.addParticipantsToEvents(payload).subscribe(resp => {
-      if (resp == true) {
-        //snackbar
-      }
-    }, err => {
-      // err snackbar msg
-    })
+  viewEvent(data: any) {
+    this.router.navigate(['/eventId', data.eventId]);
   }
 
   addEvent() {

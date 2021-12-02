@@ -4,9 +4,9 @@ body {
 }
 
 .topnav {
-    display: inline-block;
+    display: block;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #000;
 }
 
 .topnav a {
@@ -19,17 +19,14 @@ body {
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: beige;
     color: black;
 }
-
-.topnav a.active {
-    background-color: #3c3fcc;
-    color: white;
-}
-
 .signout {
     float: right;
-    margin-right: 20px;
-    margin-top: 2px;
 }
+
+.topnav a{
+    color: beige;
+}
+

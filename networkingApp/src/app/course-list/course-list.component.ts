@@ -20,15 +20,8 @@ export class CourseListComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  enrollCourse(data: any) {
-    const payload = { studentId: localStorage.getItem('studentId'), courseId: data.courseId };
-    this.authService.enrollCourse(payload).subscribe(resp => {
-      if (resp == true) {
-        //snackbar
-      }
-    }, err => {
-      // err snackbar msg
-    })
+  viewCourse(data: any) {
+    this.router.navigate(['/courseId', data.courseId]);
   }
 
   addCourse() {
