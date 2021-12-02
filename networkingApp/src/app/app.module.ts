@@ -21,6 +21,7 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { EventPageComponent } from './event-page/event-page.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { EventPageComponent } from './event-page/event-page.component';
     CourseListComponent,
     EventListComponent,
     CoursePageComponent,
-    EventPageComponent
+    EventPageComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,

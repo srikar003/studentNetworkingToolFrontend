@@ -1,0 +1,37 @@
+.center {
+    display:flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .card {
+    background-color: #8080804d;
+    width:10rem;
+    height:10rem;
+    padding:1rem;
+    box-shadow: 2px 2px #000000;
+    border-radius:5px;
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .button1 {background-color: #008CBA;} /* Blue */
+  
+  .btnContainer {
+    display:flex;
+    justify-content:center;
+    margin-top:2rem;
+  }
+  

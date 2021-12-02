@@ -10,6 +10,7 @@ import { AuthenticationService } from '../authentication.service';
 export class CoursePageComponent implements OnInit {
 
   public courseId: any;
+  private queries = []
   public course: any = {
     courseName: ''
   };
@@ -29,6 +30,12 @@ export class CoursePageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.queries = [
+      {
+        "question":"What is 1+1 ??",
+        "answer":"It is 2"
+      }
+    ] as any
   }
 
   enrollCourse(data: any) {
