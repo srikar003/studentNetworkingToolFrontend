@@ -1,9 +1,10 @@
 <button class="btn btn-primary float-right" (click)="addCourse()" *ngIf="userType == 'instructor'">Add Course</button>
+<h4>List of Courses</h4>
 <div class="row m-3">
     <div *ngFor="let course of courseList;" class="col-sm-2">
         <div class="card">
             <div class="card-body">
-                <img class="card-img-top card-img-css" src="https://www.w3schools.com/tags/img_girl.jpg" alt="Card image cap">
+                <img class="card-img-top card-img-css" src="assets/image.jpeg"" alt="Card image cap">
                 <h5 class="card-title">{{course.courseName | uppercase}}</h5>
                 <button *ngIf="userType == 'student'" class="btn btn-primary d-block"
                     (click)='viewCourse(course)'>View Course</button>

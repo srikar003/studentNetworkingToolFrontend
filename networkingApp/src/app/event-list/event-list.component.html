@@ -1,9 +1,10 @@
 <button (click)="addEvent()" class="btn btn-primary float-right" *ngIf="userType == 'instructor'">Add Event</button>
+<h4>List of Events</h4>
 <div class="row m-3">
     <div *ngFor="let event of eventList;" class="col-sm-2">
         <div class="card">
             <div class="card-body">
-                <img class="card-img-top card-img-css" src="https://www.w3schools.com/tags/img_girl.jpg" alt="Card image cap">
+                <img class="card-img-top card-img-css" src="assets/image.jpeg" alt="Card image cap">
                 <h5 class="card-title">{{event.eventName}}</h5>
                 <button *ngIf="userType == 'student'" class="btn btn-primary d-block" (click)='viewEvent(event)'>View Event</button>
 
