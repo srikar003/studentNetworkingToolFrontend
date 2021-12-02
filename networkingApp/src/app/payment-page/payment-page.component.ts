@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentPageComponent implements OnInit {
 
-  private selectedOption: String;
+  public selectedOption: String = '';
 
   constructor() { }
 
@@ -15,6 +15,7 @@ export class PaymentPageComponent implements OnInit {
   }
 
   handleChange = (value:any) => {
+    console.log(value);
     this.selectedOption = value
   }
 //TODO

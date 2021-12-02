@@ -10,7 +10,7 @@ import { AuthenticationService } from '../authentication.service';
 export class CoursePageComponent implements OnInit {
 
   public courseId: any;
-  private queries = []
+  public queries: any;
   public course: any = {
     courseName: ''
   };
@@ -32,8 +32,8 @@ export class CoursePageComponent implements OnInit {
   ngOnInit(): void {
     this.queries = [
       {
-        "question":"What is 1+1 ??",
-        "answer":"It is 2"
+        "question": "What is 1+1 ??",
+        "answer": "It is 2"
       }
     ] as any
   }
@@ -42,14 +42,16 @@ export class CoursePageComponent implements OnInit {
     if (this.course.paidCourse) {
       this.router.navigate(['/payment']);
     }
-    const payload = { studentId: localStorage.getItem('studentId'), courseId: data.courseId };
-    this.authService.enrollCourse(payload).subscribe(resp => {
-      if (resp == true) {
-        this.isStudentRegistered = true;
-        //snackbar
-      }
-    }, err => {
-      // err snackbar msg
-    })
+    else {
+      const payload = { studentId: localStorage.getItem('studentId'), courseId: data.courseId };
+      this.authService.enrollCourse(payload).subscribe(resp => {
+        if (resp == true) {
+          this.isStudentRegistered = true;
+          //snackbar
+        }
+      }, err => {
+        // err snackbar msg
+      })
+    }
   }
 }
