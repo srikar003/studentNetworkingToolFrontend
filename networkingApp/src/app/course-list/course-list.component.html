@@ -6,7 +6,7 @@
                 <img class="card-img-top card-img-css" src="https://www.w3schools.com/tags/img_girl.jpg" alt="Card image cap">
                 <h5 class="card-title">{{course.courseName | uppercase}}</h5>
                 <button *ngIf="userType == 'student'" class="btn btn-primary d-block"
-                    (click)='enrollCourse(course)'>Enroll Course</button>
+                    (click)='viewCourse(course)'>View Course</button>
             </div>
         </div>
     </div>
