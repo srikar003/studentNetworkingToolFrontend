@@ -21,7 +21,7 @@ export class EventListComponent implements OnInit {
   ngOnInit(): void { }
 
   viewEvent(data: any) {
-    this.router.navigate(['/eventId', data.eventId]);
+    this.router.navigate(['/eventId', { eventId: data.eventId, instructorName: data.fullName }]);
   }
 
   addEvent() {

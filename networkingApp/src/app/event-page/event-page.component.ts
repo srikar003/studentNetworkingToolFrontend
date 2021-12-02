@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -8,10 +8,20 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./event-page.component.scss']
 })
 export class EventPageComponent implements OnInit {
-
+  public userType: any;
+  public isStudentJoined: boolean = false;
+  public instructorName: any;
   public eventId: any;
+  public event: any;
   constructor(private authService: AuthenticationService, private route: ActivatedRoute) {
+    this.userType = localStorage.getItem('userType');
     this.eventId = this.route.snapshot.paramMap.get('eventId');
+    this.instructorName = this.route.snapshot.paramMap.get('instructorName');
+    const payload = { studentId: localStorage.getItem("studentId"), eventId: this.eventId };
+    this.authService.getCourseInfo(payload).subscribe((resp: any) => {
+      this.event = resp.event;
+      this.isStudentJoined = resp.isStudentJoined;
+    })
   }
 
   ngOnInit(): void {

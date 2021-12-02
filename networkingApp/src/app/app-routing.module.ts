@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'addEvent', component: EventComponent },
   { path: 'courseList', component: CourseListComponent },
   { path: 'eventList', component: EventListComponent },
-  { path: 'courseId/:id', component: CoursePageComponent },
-  { path: 'eventId/:id', component: EventPageComponent },
+  { path: 'courseId', component: CoursePageComponent },
+  { path: 'eventId', component: EventPageComponent },
   { path: '**', component: SigninComponent },
 ];
 

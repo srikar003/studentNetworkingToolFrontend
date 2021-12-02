@@ -21,7 +21,7 @@ export class CourseListComponent implements OnInit {
   ngOnInit(): void { }
 
   viewCourse(data: any) {
-    this.router.navigate(['/courseId', data.courseId]);
+    this.router.navigate(['/courseId', { courseId: data.courseId, instructorName: data.fullName }]);
   }
 
   addCourse() {

@@ -1,0 +1,27 @@
+.card-img-css {
+    height: 250px;
+    width: 50%;
+    float: right;
+    padding: 5px 15px;
+}
+
+.card {
+    width: 90%;
+    background: black;
+    color: beige;
+    .card-title {
+        margin-top: 5px;
+        text-align: center;
+    }
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        button {
+            background-color: beige;
+            color: black;
+            border-color: black;
+        }
+    }
+
+}

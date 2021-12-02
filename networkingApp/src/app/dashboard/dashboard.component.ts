@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   }
 
   viewCourse(data: any) {
-    this.router.navigate(['/courseId', data.courseId]);
+    this.router.navigate(['/courseId', { courseId: data.courseId, instructorName: data.fullName }]);
   }
 
   viewEvent(data: any) {

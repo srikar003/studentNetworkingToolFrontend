@@ -1,11 +1,14 @@
-<!-- <div>
+<div>
     <div>
         <img class="card-img-top card-img-css" src="https://www.w3schools.com/tags/img_girl.jpg" alt="Card image cap">
         <h5>{{course.courseName | uppercase}}</h5>
-        <p>{{event.description}}</p>
-        <label>Instructor:</label>
-        <p> {{event.fullName}}</p>
-        <button *ngIf="userType == 'student'" class="btn btn-primary d-block" (click)='enrollCourse()'>Enroll
+        <p>{{course.description}}</p>
+        <label>Instructor: {{instructorName}}</label><br>
+        <label>Course Fees: ${{course.price || 0}}</label>
+        <button *ngIf="userType == 'student' && !isStudentRegistered" class="btn btn-primary d-block"
+            (click)='enrollCourse(course)'>Enroll
             Course</button>
+        <button *ngIf="userType == 'student' &&  isStudentRegistered" class="btn btn-primary d-block" disabled>Course
+            Enrolled</button>
     </div>
-</div> -->
+</div>
