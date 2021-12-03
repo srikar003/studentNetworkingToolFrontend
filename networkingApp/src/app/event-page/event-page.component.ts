@@ -12,14 +12,18 @@ export class EventPageComponent implements OnInit {
   public isStudentJoined: boolean = false;
   public instructorName: any;
   public eventId: any;
-  public event: any;
+  public events = {
+    eventName: '',
+    description: ''
+  };
   constructor(private authService: AuthenticationService, private route: ActivatedRoute) {
     this.userType = localStorage.getItem('userType');
     this.eventId = this.route.snapshot.paramMap.get('eventId');
     this.instructorName = this.route.snapshot.paramMap.get('instructorName');
     const payload = { studentId: localStorage.getItem("studentId"), eventId: this.eventId };
-    this.authService.getCourseInfo(payload).subscribe((resp: any) => {
-      this.event = resp.event;
+    this.authService.getEventInfo(payload).subscribe((resp: any) => {
+      this.events = resp.event;
+      console.log(this.events);
       this.isStudentJoined = resp.isStudentJoined;
     })
   }

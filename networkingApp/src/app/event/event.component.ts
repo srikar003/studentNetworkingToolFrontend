@@ -14,7 +14,7 @@ export class EventComponent implements OnInit {
     this.addEventForm = fb.group({
       eventId: [''],
       eventName: ['', Validators.required],
-      eventDescription: ['', Validators.required],
+      description: ['', Validators.required],
       instructorId: ['']
     })
   }

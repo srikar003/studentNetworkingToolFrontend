@@ -30,6 +30,7 @@ export class AuthenticationService {
   private readonly getEventsListUrl = "http://localhost:8080/getEvents"
   private readonly enrollCourseUrl = "http://localhost:8080/enrollCourse"
   private readonly getCourseInfoUrl = "http://localhost:8080/getCourseInfo"
+  private readonly getEventInfoUrl = "http://localhost:8080/getEventInfo"
 
 
 
@@ -101,6 +102,10 @@ export class AuthenticationService {
 
   getCourseInfo(data: any) {
     return this.http.post(this.getCourseInfoUrl, data, this.httpOptions).pipe(map(d => d));
+  }
+
+  getEventInfo(data: any) {
+    return this.http.post(this.getEventInfoUrl, data, this.httpOptions).pipe(map(d => d));
   }
 
 }

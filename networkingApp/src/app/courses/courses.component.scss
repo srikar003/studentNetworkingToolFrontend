@@ -2,3 +2,13 @@ mat-slide-toggle {
     margin: 8px 0;
     display: block;
   }
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  height: 200px;
+}

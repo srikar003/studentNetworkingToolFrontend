@@ -1,13 +1,27 @@
-<form [formGroup]="addCourseForm" (ngSubmit)="addCourse()">
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4 m-4 p-4 bg-white shadow-lg rounded flex-container">
 
-    <label>Course Name: </label>
-    <input id="courseName" type="text" formControlName="courseName"><br>
-    <label>Description: </label>
-    <input id="description" type="text" formControlName="description"><br>
-    <mat-slide-toggle formControlName="isPaidCourse">IsPaidCourse</mat-slide-toggle><br>
-    <div [hidden]="!this.addCourseForm.value.isPaidCourse">
-        <label>Price: </label>
-        <input id="price" type="number" formControlName="price"><br>
+            <form [formGroup]="addCourseForm" (ngSubmit)="addCourse()">
+                <div class="form-outline mb-1 mt-1">
+                    <label class="form-label">Course Name:  </label>
+                    <input class="form-control" id="courseName" type="text" formControlName="courseName">
+                </div>
+                <div class="form-outline mb-1 mt-1">
+                    <label class="form-label">Description:  </label>
+                    <textarea class="form-control" id="description" type="text" formControlName="description"></textarea>
+                </div>
+                <mat-slide-toggle formControlName="isPaidCourse">IsPaidCourse </mat-slide-toggle>
+                <div class="form-outline mb-1 mt-1" [hidden]="!this.addCourseForm.value.isPaidCourse">
+                    <label class="form-label">Price: </label>
+                    <input class="form-control" id="price" type="number" formControlName="price">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block my-3" [disabled]="!addCourseForm.valid">Submit</button>
+            </form>
+        </div>
+        <div class="col-4">
+        </div>
     </div>
-    <button type="submit" [disabled]="!addCourseForm.valid">Submit</button>
-</form>
+</div>

@@ -28,7 +28,6 @@ export class SigninComponent implements OnInit {
 
   login() {
     this.authService.signIn(this.signInForm.value, this.userType).subscribe((data: any) => {
-      console.log()
       localStorage.setItem('userType', this.userType);
       if (this.userType == 'instructor') {
         localStorage.setItem('instructorId', data.id);

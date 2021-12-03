@@ -30,12 +30,7 @@ export class CoursePageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.queries = [
-      {
-        "question": "What is 1+1 ??",
-        "answer": "It is 2"
-      }
-    ] as any
+
   }
 
   enrollCourse(data: any) {
